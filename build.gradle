@@ -58,4 +58,5 @@ task buildDocker(type: Docker, dependsOn: build) {
 	}
 	entryPoint(['java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/app.jar'])
 	exposePort(8080)
+	dryRun true
 }
