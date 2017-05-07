@@ -1,4 +1,4 @@
-package com.carlsonwagonlit
+package com.github.joeyslalom
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication

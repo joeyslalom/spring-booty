@@ -1,4 +1,5 @@
-# https://github.com/GoogleCloudPlatform/runtime-builder-java/blob/master/java.yaml
+# Adapted from: https://github.com/GoogleCloudPlatform/runtime-builder-java
+# Run: $ ./gradlew clean && gcloud container builds submit --config=java.yaml .
 
 # Java runtime builder pipeline.
 
