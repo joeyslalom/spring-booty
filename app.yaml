@@ -1,0 +1,6 @@
+runtime: custom
+env: flex
+
+# Unsure if this is needed, from: https://cloud.google.com/appengine/docs/flexible/java/configuring-your-app-with-app-yaml
+runtime_config:
+  jdk: openjdk8

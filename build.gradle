@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        kotlinVersion = '1.1.2'
+        kotlinVersion = '1.1.2-2'
         springBootVersion = '1.5.3.RELEASE'
     }
     repositories {
@@ -8,16 +8,12 @@ buildscript {
     }
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
-        classpath 'se.transmode.gradle:gradle-docker:1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
 
-apply plugin: 'java'
 apply plugin: 'kotlin'
-apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'docker'
 
 
 compileJava {
@@ -46,18 +42,4 @@ dependencies {
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlinVersion"
-}
-
-task buildDocker(type: Docker, dependsOn: build) {
-    applicationName = jar.baseName
-    tagVersion = "latest"
-    dockerfile = file('Dockerfile')
-
-    doFirst {
-        copy {
-            from jar
-            into stageDir
-            rename { 'app.jar' }
-        }
-    }
 }
